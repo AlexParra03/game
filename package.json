@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodejs server.js",
-    "build": "webpack --mode=development",
-    "build:p": "webpack --mode=production"
+    "start": "node ./server/server.js",
+    "build-client": "webpack --mode=development",
+    "build-client:p": "webpack --mode=production"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "webpack-dev-server": "^3.3.0"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-ws": "^4.0.0"
   }
 }
