@@ -86,6 +86,66 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/src/GameObjects/Character.ts":
+/*!*********************************************!*\
+  !*** ./client/src/GameObjects/Character.ts ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar GameObject_1 = __webpack_require__(/*! ./GameObject */ \"./client/src/GameObjects/GameObject.ts\");\nvar Character = /** @class */ (function (_super) {\n    __extends(Character, _super);\n    function Character() {\n        var _this = _super.call(this) || this;\n        var texture = PIXI.Texture.fromImage('assets/graphics/Player/player.png', true);\n        var sprite = new PIXI.Sprite(texture);\n        _this.currentSprite = new PIXI.Sprite(texture);\n        _this.currentSprite.position.x = 100;\n        _this.currentSprite.position.y = 200;\n        // bunny.anchor.x = 0.5;\n        // bunny.anchor.y = 0.5;\n        // bunny.position.x = 400;\n        // bunny.position.y = 300;\n        // bunny.scale.x = 2;\n        // bunny.scale.y = 2;\n        _this.addChild(_this.currentSprite);\n        return _this;\n    }\n    Character.prototype.update = function (deltaTime) {\n        // console.log(deltaTime);\n        // this.currentSprite.position.x += 1;\n    };\n    Character.prototype.loadTextures = function () {\n    };\n    return Character;\n}(GameObject_1.GameObject));\nexports.Character = Character;\n\n\n//# sourceURL=webpack:///./client/src/GameObjects/Character.ts?");
+
+/***/ }),
+
+/***/ "./client/src/GameObjects/GameObject.ts":
+/*!**********************************************!*\
+  !*** ./client/src/GameObjects/GameObject.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar PIXI = __webpack_require__(/*! pixi.js */ \"pixi.js\");\nvar GameObject = /** @class */ (function (_super) {\n    __extends(GameObject, _super);\n    function GameObject() {\n        var _this = _super.call(this) || this;\n        _this.currentSprite = null;\n        return _this;\n    }\n    return GameObject;\n}(PIXI.Container));\nexports.GameObject = GameObject;\n\n\n//# sourceURL=webpack:///./client/src/GameObjects/GameObject.ts?");
+
+/***/ }),
+
+/***/ "./client/src/GameObjects/Player.ts":
+/*!******************************************!*\
+  !*** ./client/src/GameObjects/Player.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar GameObject_1 = __webpack_require__(/*! ./GameObject */ \"./client/src/GameObjects/GameObject.ts\");\nvar Player = /** @class */ (function (_super) {\n    __extends(Player, _super);\n    function Player() {\n        var _this = _super.call(this) || this;\n        var texture = PIXI.Texture.fromImage('assets/graphics/Player/player.png', true);\n        var sprite = new PIXI.Sprite(texture);\n        _this.currentSprite = new PIXI.Sprite(texture);\n        _this.currentSprite.position.x = 200;\n        _this.currentSprite.position.y = 200;\n        // bunny.anchor.x = 0.5;\n        // bunny.anchor.y = 0.5;\n        // bunny.position.x = 400;\n        // bunny.position.y = 300;\n        // bunny.scale.x = 2;\n        // bunny.scale.y = 2;\n        _this.addChild(_this.currentSprite);\n        window.addEventListener('keydown', _this.keyDownEvent);\n        return _this;\n    }\n    Player.prototype.update = function (deltaTime) {\n        // console.log(deltaTime);\n        this.currentSprite.position.x += 1;\n    };\n    Player.prototype.loadTextures = function () {\n    };\n    Player.prototype.keyDownEvent = function (event) {\n        console.log(event.code);\n    };\n    return Player;\n}(GameObject_1.GameObject));\nexports.Player = Player;\n\n\n//# sourceURL=webpack:///./client/src/GameObjects/Player.ts?");
+
+/***/ }),
+
+/***/ "./client/src/GameWorld.ts":
+/*!*********************************!*\
+  !*** ./client/src/GameWorld.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Character_1 = __webpack_require__(/*! ./GameObjects/Character */ \"./client/src/GameObjects/Character.ts\");\nvar GameWorld = /** @class */ (function (_super) {\n    __extends(GameWorld, _super);\n    // gameObjects : Array<GameObject> = new Array();\n    function GameWorld() {\n        var _this = _super.call(this) || this;\n        var objOne = new Character_1.Character();\n        objOne.currentSprite.x = 103;\n        objOne.currentSprite.y = 239;\n        _this.addChild(objOne);\n        var objTwo = new Character_1.Character();\n        objTwo.currentSprite.x = 203;\n        objTwo.currentSprite.y = 239;\n        _this.addChild(objTwo);\n        var objThree = new Character_1.Character();\n        objThree.currentSprite.x = 303;\n        objThree.currentSprite.y = 239;\n        _this.addChild(objThree);\n        return _this;\n    }\n    GameWorld.prototype.update = function (deltaTime) {\n    };\n    return GameWorld;\n}(PIXI.Container));\nexports.GameWorld = GameWorld;\n\n\n//# sourceURL=webpack:///./client/src/GameWorld.ts?");
+
+/***/ }),
+
+/***/ "./client/src/MainScene.ts":
+/*!*********************************!*\
+  !*** ./client/src/MainScene.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Player_1 = __webpack_require__(/*! ./GameObjects/Player */ \"./client/src/GameObjects/Player.ts\");\nvar GameWorld_1 = __webpack_require__(/*! ./GameWorld */ \"./client/src/GameWorld.ts\");\nvar MainScene = /** @class */ (function (_super) {\n    __extends(MainScene, _super);\n    function MainScene() {\n        var _this = _super.call(this) || this;\n        _this.player = new Player_1.Player();\n        // this.player.position.x = 500;\n        _this.addChild(_this.player);\n        _this.gameWorld = new GameWorld_1.GameWorld();\n        _this.addChild(_this.gameWorld);\n        return _this;\n        // this.addChild(new Player());\n    }\n    MainScene.prototype.update = function (deltaTime) {\n        this.player.update(deltaTime);\n        this.gameWorld.update(deltaTime);\n    };\n    return MainScene;\n}(PIXI.Container));\nexports.MainScene = MainScene;\n\n\n//# sourceURL=webpack:///./client/src/MainScene.ts?");
+
+/***/ }),
+
 /***/ "./client/src/game.ts":
 /*!****************************!*\
   !*** ./client/src/game.ts ***!
@@ -94,7 +154,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar PIXI = __webpack_require__(/*! pixi.js */ \"pixi.js\");\nvar renderer = PIXI.autoDetectRenderer(800, 600, { backgroundColor: 0x1099bb });\ndocument.body.appendChild(renderer.view);\nvar stage = new PIXI.Container();\nvar texture = PIXI.Texture.fromImage('assets/graphics/bunny.png', true);\nconsole.log(\"HELLO\");\nvar bunny = new PIXI.Sprite(texture);\nbunny.anchor.x = 0.5;\nbunny.anchor.y = 0.5;\nbunny.position.x = 400;\nbunny.position.y = 300;\nbunny.scale.x = 2;\nbunny.scale.y = 2;\nstage.addChild(bunny);\nanimate();\nfunction animate() {\n    requestAnimationFrame(animate);\n    var bunny = stage.getChildAt(0);\n    bunny.rotation += 0.01;\n    renderer.render(stage);\n}\n\n\n//# sourceURL=webpack:///./client/src/game.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar PIXI = __webpack_require__(/*! pixi.js */ \"pixi.js\");\nvar Player_1 = __webpack_require__(/*! ./GameObjects/Player */ \"./client/src/GameObjects/Player.ts\");\nvar MainScene_1 = __webpack_require__(/*! ./MainScene */ \"./client/src/MainScene.ts\");\nvar renderer = PIXI.autoDetectRenderer(800, 600, { backgroundColor: 0x1099bb });\ndocument.body.appendChild(renderer.view);\n// var stage = new PIXI.Container();\n// var texture = PIXI.Texture.fromImage('assets/graphics/bunny.png', true);\n// console.log(\"HELLO\");\n// var bunny = new PIXI.Sprite(texture);\n// bunny.anchor.x = 0.5;\n// bunny.anchor.y = 0.5;\n// bunny.position.x = 400;\n// bunny.position.y = 300;\n// bunny.scale.x = 2;\n// bunny.scale.y = 2;\n// stage.addChild(bunny);\nvar scene = new MainScene_1.MainScene();\nvar player = new Player_1.Player();\nmainLoop();\nvar prev_time = Date.now();\nfunction mainLoop() {\n    var delta_time = Date.now() - prev_time;\n    prev_time = Date.now();\n    requestAnimationFrame(mainLoop);\n    scene.update(delta_time);\n    renderer.render(scene);\n}\n\n\n//# sourceURL=webpack:///./client/src/game.ts?");
 
 /***/ }),
 
