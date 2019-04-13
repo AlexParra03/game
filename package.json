@@ -20,6 +20,7 @@
     "webpack-dev-server": "^3.3.0"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "ws": "^6.2.1"
   }
 }
