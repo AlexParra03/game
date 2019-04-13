@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    entry: path.join(__dirname, 'src/game.ts'),
+    entry: path.join(__dirname, 'client/src/game.ts'),
     output: {
-        filename: 'assets/code/game.js',
+        filename: 'client/assets/code/game.js',
         path: __dirname
     },
     module: {
@@ -18,4 +18,9 @@ module.exports = {
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
     },
+    externals: [
+        // Don't bundle pixi.js, assume it'll be included in the HTML via a script
+        // tag, and made available in the global variable PIXI.
+        { "pixi.js": "PIXI" }
+    ]
 };
