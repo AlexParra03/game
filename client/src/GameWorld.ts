@@ -1,12 +1,16 @@
 import { Player } from "./GameObjects/Player";
 import { Character } from "./GameObjects/Character";
 import { GameObject } from "./GameObjects/GameObject";
+import { TileMap } from "./GameObjects/TileMap";
 
 export class GameWorld extends PIXI.Container {
     
 
     constructor() {
         super();
+
+        const tileMap = new TileMap();
+        this.addChild(tileMap);
 
         const objOne = new Character();
         objOne.currentSprite.x = 103;
