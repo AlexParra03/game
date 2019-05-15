@@ -9,16 +9,30 @@ export class MainScene extends PIXI.Container {
 
     constructor() {
         super();
+        this.gameWorld = new GameWorld();
+        this.addChild(this.gameWorld);
         this.player = new Player();
         // this.player.position.x = 500;
         this.addChild(this.player);
-        this.gameWorld = new GameWorld();
-        this.addChild(this.gameWorld);
+
         // this.addChild(new Player());
     }
 
     update(deltaTime: number) {
         this.player.update(deltaTime);
         this.gameWorld.update(deltaTime);
+
+        if(this.player.movingUp) {
+            this.gameWorld.position.y -= 1;
+        }
+        if(this.player.movingDown) {
+            this.gameWorld.position.y += 1;
+        }
+        if(this.player.movingLeft) {
+            this.gameWorld.position.x -= 1;
+        }
+        if(this.player.movingRight) {
+            this.gameWorld.position.x += 1;
+        }
     }
 }

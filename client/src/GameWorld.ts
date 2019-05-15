@@ -3,8 +3,6 @@ import { Character } from "./GameObjects/Character";
 import { GameObject } from "./GameObjects/GameObject";
 
 export class GameWorld extends PIXI.Container {
-
-    // gameObjects : Array<GameObject> = new Array();
     
 
     constructor() {
