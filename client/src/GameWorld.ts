@@ -9,7 +9,7 @@ export class GameWorld extends PIXI.Container {
         super();
 
         const objOne = new Character();
-        objOne.currentSprite.x = 103;
+        objOne.currentSprite.x = -50;
         objOne.currentSprite.y = 239;
         this.addChild(objOne);
 
@@ -19,13 +19,15 @@ export class GameWorld extends PIXI.Container {
         this.addChild(objTwo);
 
         const objThree = new Character();
-        objThree.currentSprite.x = 303;
+        objThree.currentSprite.x = 503;
         objThree.currentSprite.y = 239;
         this.addChild(objThree);
         
     }
 
     update(deltaTime: number) {
-    
+	    this.children.forEach(function (character: Character) {
+		    character.update(deltaTime);
+	    });
     }
 }
