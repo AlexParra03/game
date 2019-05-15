@@ -26,6 +26,8 @@ export class Player extends GameObject {
     }
 
     update(deltaTime) {
+        // console.log(deltaTime);
+        this.currentSprite.position.x += 1;
     }
 
     loadTextures(){
