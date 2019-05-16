@@ -12,10 +12,8 @@ export class MainScene extends PIXI.Container {
         this.gameWorld = new GameWorld();
         this.addChild(this.gameWorld);
         this.player = new Player();
-        // this.player.position.x = 500;
         this.addChild(this.player);
 
-        // this.addChild(new Player());
     }
 
     update(deltaTime: number) {
@@ -23,16 +21,16 @@ export class MainScene extends PIXI.Container {
         this.gameWorld.update(deltaTime);
 
         if(this.player.movingUp) {
-            this.gameWorld.position.y -= 1;
-        }
-        if(this.player.movingDown) {
             this.gameWorld.position.y += 1;
         }
+        if(this.player.movingDown) {
+            this.gameWorld.position.y -= 1;
+        }
         if(this.player.movingLeft) {
-            this.gameWorld.position.x -= 1;
+            this.gameWorld.position.x += 1;
         }
         if(this.player.movingRight) {
-            this.gameWorld.position.x += 1;
+            this.gameWorld.position.x -= 1;
         }
     }
 }
