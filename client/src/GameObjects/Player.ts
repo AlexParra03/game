@@ -1,6 +1,7 @@
 import { GameObject } from "./GameObject";
+import { Character } from "./Character";
 
-export class Player extends GameObject {
+export class Player extends Character {
     movingUp = false;
     movingDown = false;
     movingLeft = false;
@@ -26,8 +27,7 @@ export class Player extends GameObject {
     }
 
     update(deltaTime) {
-        // console.log(deltaTime);
-        this.currentSprite.position.x += 1;
+        super.update(deltaTime);
     }
 
     loadTextures(){
