@@ -1,2 +1,4 @@
 node_modules
 client/assets/code/game.js
+*.swp
+*.swo
