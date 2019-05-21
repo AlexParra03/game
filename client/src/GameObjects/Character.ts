@@ -19,13 +19,13 @@ export class Character extends GameObject {
     update(deltaTime)
     {
    	var sprite = this.currentSprite;
-	this.draw_hp_bar(
+	this.drawHpBar(
 	    sprite.position.x + sprite.width * 0.5 - Config.HP_BAR_WIDTH * 0.5,
 	    sprite.position.y - Config.HP_BAR_HEIGHT,
 	    this.hp / this.maxHp);
     }
 
-    draw_hp_bar(x: number, y: number, hp: number): void
+    drawHpBar(x: number, y: number, hp: number): void
     {
     	this.hpBar.clear();
 	this.hpBar.beginFill(Config.HP_BAR_BG);
