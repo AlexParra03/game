@@ -9,4 +9,5 @@ export abstract class GameObject extends PIXI.Container {
   }
 
   abstract loadTextures(): void;
+  abstract update(deltaTime: number): void;
 }

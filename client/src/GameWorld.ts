@@ -13,8 +13,8 @@ export class GameWorld extends PIXI.Container {
     }
 
     update(deltaTime: number) {
-	    this.children.forEach(function (character: Character) {
-		    character.update(deltaTime);
+	    this.children.forEach(function (object: GameObject) {
+		    object.update(deltaTime);
 	    });
     }
 

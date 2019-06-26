@@ -1,9 +1,13 @@
 import * as PIXI from 'pixi.js';
 
-import { Config } from '../Config';
 import { GameObject } from "./GameObject";
 
 export class Character extends GameObject {
+	public static B_COLOR = 0XFF0000;
+	public static  F_COLOR = 0X00FF00;
+	public static WIDTH = 150.0;
+	public static HEIGHT = 40.0;
+	
 	hp: number;
 	maxHp: number;
 	hpBar: PIXI.Graphics;
@@ -11,27 +15,27 @@ export class Character extends GameObject {
     constructor() {
         super();
     	this.hp = 1.0;
-	this.maxHp = 1.0;
+		this.maxHp = 1.0;
     	this.hpBar = new PIXI.Graphics();
     	this.addChild(this.hpBar);
     }
 
     update(deltaTime)
     {
-   	var sprite = this.currentSprite;
-	this.drawHpBar(
-	    sprite.position.x + sprite.width * 0.5 - Config.HP_BAR_WIDTH * 0.5,
-	    sprite.position.y - Config.HP_BAR_HEIGHT,
-	    this.hp / this.maxHp);
+		var sprite = this.currentSprite;
+		this.drawHpBar(
+			sprite.position.x + sprite.width * 0.5 - Character.WIDTH * 0.5,
+			sprite.position.y - Character.HEIGHT,
+			this.hp / this.maxHp);
     }
 
     drawHpBar(x: number, y: number, hp: number): void
     {
     	this.hpBar.clear();
-	this.hpBar.beginFill(Config.HP_BAR_BG);
-    	this.hpBar.drawRect(x, y, Config.HP_BAR_WIDTH, Config.HP_BAR_HEIGHT);
-	this.hpBar.beginFill(Config.HP_BAR_FG);
-	this.hpBar.drawRect(x, y, Config.HP_BAR_WIDTH * hp, Config.HP_BAR_HEIGHT);
+		this.hpBar.beginFill(Character.B_COLOR);
+    	this.hpBar.drawRect(x, y, Character.WIDTH, Character.HEIGHT);
+		this.hpBar.beginFill(Character.F_COLOR);
+		this.hpBar.drawRect(x, y, Character.WIDTH * hp, Character.HEIGHT);
     }
 
     loadTextures()
